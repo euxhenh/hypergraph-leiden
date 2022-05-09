@@ -1,2 +1,4 @@
 __py*
 .ipynb*
+*.png
+*.pdf

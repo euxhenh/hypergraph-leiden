@@ -19,7 +19,7 @@ def get_col_i(pal, i):
     return pal[i % len(pal)]
 
 
-def scatterplot(x, y, labels, title=None):
+def scatterplot(x, y, labels, title=None, return_fig=False):
     """Beautiful scatter plots.
 
     Parameters
@@ -36,7 +36,7 @@ def scatterplot(x, y, labels, title=None):
         x=x,
         y=y,
         category_orders={'color': unq_labels.astype(str)},
-        opacity=0.4,
+        opacity=1,
         color_discrete_map={str(i): get_col_i(PALETTE, i)
                             for i in range(max_label)},
         color=labels.astype(str),
@@ -49,7 +49,9 @@ def scatterplot(x, y, labels, title=None):
         yaxis={'visible': False},
         title=title,
     )
-
+    
+    if return_fig:
+        return fig
     fig.show()
 
 
